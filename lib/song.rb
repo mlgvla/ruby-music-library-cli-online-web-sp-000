@@ -61,4 +61,28 @@ class Song
     end
   end
 
+  def self.new_from_filename(filename)
+    filename.slice!(".mp3")
+    fn_array = filename.split(" - ")
+
+    artist_name = fn_array[0]
+    song_name = fn_array[1]
+    genre_name = fn_array[2]
+
+    artist = Artist.find_or_create_by_name(artist_name)
+    genre = Genre.find_or_create_by_name(genre_name)
+    self.new(song_name, artist, genre)
+  end
+
+  def artist
+    @artist
+  end
+
+  def artist=(artist)
+    @artist = artist
+    self.artist.add_song(self)
+  end
+
+
+
 end
