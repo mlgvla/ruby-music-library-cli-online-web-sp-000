@@ -61,6 +61,7 @@ class MusicLibraryController
       puts"#{counter}. #{artist.name}"
       counter += 1
     end
+    call
   end
 
   def list_genres
@@ -70,6 +71,7 @@ class MusicLibraryController
       puts"#{counter}. #{genre.name}"
       counter += 1
     end
+    call
   end
 
   def list_songs_by_artist
@@ -85,6 +87,7 @@ class MusicLibraryController
         counter += 1
       end
     end
+    call
   end
 
   def list_songs_by_genre
@@ -100,6 +103,7 @@ class MusicLibraryController
         counter += 1
       end
     end
+    call
   end
 
   def play_song
@@ -112,6 +116,6 @@ class MusicLibraryController
       song_choice = sorted_library[user_input - 1]
       puts "Playing #{song_choice.name} by #{song_choice.artist.name}"
     end
-
+    call
   end
 end
